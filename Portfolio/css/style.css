@@ -173,8 +173,11 @@ img {
   background-size: cover;
   margin: 10px 5%;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
+  -webkit-transition: 1s;
+  transition: 1s;
+  min-height: 300px;
 }
 
 #services .service-item::after {
@@ -189,9 +192,20 @@ img {
   z-index: -1;
 }
 
+#services .service-item:hover {
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+          transform: rotate3d(0, 1, 0, 180deg);
+}
+
+#services .service-item:hover .icon, #services .service-item:hover h2 {
+  display: none;
+}
+
 #services .service-item:hover p {
   -webkit-line-clamp: 10;
   line-clamp: 10;
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+          transform: rotate3d(0, 1, 0, 180deg);
 }
 
 #services .service-bottom .icon {
@@ -634,3 +648,104 @@ img {
   }
 }
 /* End  Media Query For Desktop */
+#myHeader .wrapper {
+  position: fixed;
+  z-index: 100;
+}
+
+#myHeader .logo {
+  line-height: 60px;
+  position: fixed;
+  float: left;
+  margin: 16px 46px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+#myHeader nav {
+  position: fixed;
+  width: 100%;
+  line-height: 60px;
+  z-index: 100;
+}
+
+#myHeader nav ul {
+  line-height: 60px;
+  list-style: none;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  color: #fff;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  padding-right: 40px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#myHeader nav.black ul {
+  background: #29323c;
+}
+
+#myHeader nav ul li {
+  display: inline-block;
+  padding: 16px 40px;
+}
+
+#myHeader nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+#myHeader .menu-icon {
+  line-height: 60px;
+  width: 100%;
+  background: #29323c;
+  text-align: right;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 15px 24px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+}
+
+@media (max-width: 786px) {
+  #myHeader .logo {
+    position: fixed;
+    top: 0;
+    margin-top: 16px;
+    display: none;
+  }
+
+  #myHeader nav ul {
+    max-height: 0px;
+    background: #29323c;
+  }
+
+  #myHeader nav.black ul {
+    background: #29323c;
+  }
+
+  #myHeader .showing {
+    max-height: 34em;
+  }
+
+  #myHeader nav ul li {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    padding: 24px;
+    text-align: center;
+  }
+
+  #myHeader .menu-icon {
+    display: block;
+  }
+}
+.cd-section {
+  display: none;
+}
